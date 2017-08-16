@@ -22,8 +22,17 @@
 			, Produto(8, "Chocotino", 1, 12)];
 
 		$.each(cardapio, function(ind, item){
-			$("#cardapio").append($("<li />").text(item.nome));
-		})
+			$("#cardapio").append($("<li />").text(item.nome)
+				);
+		});
+		$("#cardapio").on("click", "li", function(){
+			var produtoEscolhido = $(this).text();
+			$("#pedidos")
+				.append(
+					$("<li />")
+						.text(produtoEscolhido)
+				);
+		});
 	});
 	</script>
 </head>
@@ -36,6 +45,9 @@
  			
  		</ul>
  		<h2>Pedidos</h2>
+ 		<ul id="pedidos">
+ 			
+ 		</ul>
  	</div>
 </body>
 </html>
