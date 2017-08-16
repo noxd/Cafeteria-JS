@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<script src="./js/jquery.min.js"></script>
+	<script>
+	$(function() {
+		function Produto(id, prod, quant, valorUnitario){
+			return{"id": id, 
+			"nome": prod,
+			"quant": quant,
+			"valorUnitario": valorUnitario};
+		}
+		var cardapio = [Produto(1, "Capuccino", 1, 7)
+			, Produto(2, "Expresso", 1, 4)
+			, Produto(3, "Fraputino", 1, 8)
+			, Produto(4, "Chocolate Quente", 1, 7)
+			, Produto(5, "Frapê", 1, 10)
+			, Produto(6, "Suco de Laranja", 1, 12)
+			, Produto(7, "Açaí", 1, 10)
+			, Produto(8, "Chocotino", 1, 12)];
+
+		$.each(cardapio, function(ind, item){
+			$("#cardapio").append($("<li />").text(item.nome));
+		})
+	});
+	</script>
+</head>
+<body>
+	<div>
+		<h1>Cafeteria do Cefet</h1>
+	</div>
+ 	<div id="menu">
+ 		<ul id="cardapio">
+ 			
+ 		</ul>
+ 		<h2>Pedidos</h2>
+ 	</div>
+</body>
+</html>
