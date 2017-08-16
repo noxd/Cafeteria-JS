@@ -21,17 +21,39 @@
 			, Produto(7, "Açaí", 1, 10)
 			, Produto(8, "Chocotino", 1, 12)];
 
+		var produtosEscolhidosArray = [];
+
 		$.each(cardapio, function(ind, item){
-			$("#cardapio").append($("<li />").text(item.nome)
+			$("#cardapio")
+				.append(
+					$("<li />")
+					.attr("id", item.id)
+						.text(item.nome)
 				);
 		});
+		var result;
+		function pesquisaPorId(vetor, objId){
+			$.each(vetor, function(index, obj){
+				if (obj.id==objId) {
+					result = obj;
+				}
+			});
+			return result;
+		}
 		$("#cardapio").on("click", "li", function(){
+			itemEscolhido = pesquisaPorId(cardapio, $(this).attr("id"));
+			console.log(itemEscolhido);
+			/*
 			var produtoEscolhido = $(this).text();
+			produtosEscolhidosArray.push()
+
+			
 			$("#pedidos")
 				.append(
 					$("<li />")
 						.text(produtoEscolhido)
 				);
+			*/
 		});
 	});
 	</script>
@@ -46,8 +68,8 @@
  		</ul>
  		<h2>Pedidos</h2>
  		<ul id="pedidos">
- 			
  		</ul>
+ 		<h2 id="valorTotal">Total</h2>
  	</div>
 </body>
 </html>
